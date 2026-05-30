@@ -3,8 +3,6 @@
 ## 📌 Project Overview
 This repository contains a comprehensive Digital Signal Processing (DSP) application built in MATLAB. The project provides an interactive Graphical User Interface (GUI) designed for the advanced frequency analysis and dynamic filtering of audio signals. By integrating numerical processing with real-time computer graphics, the tool allows users to clean audio files from background noise or isolate specific instruments and vocal frequencies.
 
-This application was developed as the final project for the "Computer Assisted Graphics" course by Bob Vlad Ștefan (Faculty of Electronics, Telecommunications and Information Technology - ETTI, Year II, Series B, Group 2126).
-
 ## ⚙️ Core Functionality & Architecture
 The core logic relies on a digital Butterworth filter design, renowned for its flat frequency response in the passband. The application functions as a bandpass filter, which structurally operates as a combination of High-Pass and Low-Pass filters connected in series. 
 
@@ -42,3 +40,6 @@ Ensure the following files are present in the root directory for the application
 6. Select the desired **Ordin Filtru** (Filter Order) for roll-off severity.
 7. Click **⚡ APLICA FILTRUL** to process the data and render the analytical plots.
 8. Use the **🔊 Play Original** and **🎧 Play Filtrat** buttons to audit the results.
+
+## 👨‍💻 Author
+This application was developed as the final project for the "Computer Assisted Graphics" course by Bob Vlad Ștefan (Faculty of Electronics, Telecommunications and Information Technology - ETTI, Year II, Series B, Group 2126).
