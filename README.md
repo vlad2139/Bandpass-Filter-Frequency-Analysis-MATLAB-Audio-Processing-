@@ -1,52 +1,44 @@
-# Bandpass Filter - Frequency Analysis (MATLAB GUI)
+# Bandpass Filter - Audio Frequency Analysis (MATLAB GUI)
 
 ## 📌 Project Overview
-This project provides a versatile software tool for cleaning audio signals from background noise and isolating specific instruments or voices[cite: 7, 70]. [cite_start]It integrates numerical signal processing with computer graphics to create an interactive frequency analysis application[cite: 7, 69]. 
+This repository contains a comprehensive Digital Signal Processing (DSP) application built in MATLAB. The project provides an interactive Graphical User Interface (GUI) designed for the advanced frequency analysis and dynamic filtering of audio signals. By integrating numerical processing with real-time computer graphics, the tool allows users to clean audio files from background noise or isolate specific instruments and vocal frequencies.
 
-[cite_start]This was developed as part of the "Computer Assisted Graphics" course by Bob Vlad Ștefan (Faculty of Electronics, Telecommunications and Information Technology - ETTI, Year II, Series B, Group 2126)[cite: 2, 3, 4, 5, 36, 37, 38, 39].
+This application was developed as the final project for the "Computer Assisted Graphics" course by Bob Vlad Ștefan (Faculty of Electronics, Telecommunications and Information Technology - ETTI, Year II, Series B, Group 2126).
 
-## 🎯 Main Objectives
-* [cite_start]**Audio Processing:** Digital filtering of signals using Butterworth algorithms[cite: 9, 49].
-* [cite_start]**Graphical User Interface (GUI):** An ergonomic control panel for manipulating parameters in real-time[cite: 10, 50].
-* [cite_start]**Multi-Axis Visualization:** Simultaneous representation of the audio signal in four complementary modes: Time, Frequency, Magnitude, and Spectrogram[cite: 11, 51].
+## ⚙️ Core Functionality & Architecture
+The core logic relies on a digital Butterworth filter design, renowned for its flat frequency response in the passband. The application functions as a bandpass filter, which structurally operates as a combination of High-Pass and Low-Pass filters connected in series. 
 
-## ⚙️ Theoretical Background
-[cite_start]A bandpass filter allows signals within a specific frequency range (the passband) to pass through without attenuation (or very little), while heavily attenuating frequencies outside this range[cite: 13, 14, 42, 43]. [cite_start]Structurally, it combines a High-Pass Filter (FTS) and a Low-Pass Filter (FTJ) in series[cite: 15, 41].
+Key processing features include:
+* **Dynamic Frequency Control:** Users can define custom lower (Start) and upper (Stop) cut-off frequencies to create a highly specific passband window.
+* **Adjustable Filter Order:** The system supports dynamic switching between multiple filter orders (2nd, 4th, 8th, and 16th order), allowing users to control the steepness of the attenuation (roll-off) outside the selected frequency band.
+* **Real-Time Signal Processing:** The audio array is processed entirely within the MATLAB environment, instantly applying the transfer function to the loaded audio data and preparing it for comparative playback.
 
-### Butterworth Filter Implementation
-[cite_start]The application uses a Butterworth filter based on the Magnitude Equation to determine the response amplitude[cite: 22]:
+## 📊 Visualization Suite
+To provide a complete analytical overview, the interface renders four simultaneous, independent visualization axes:
+1. **Time Domain Analysis:** A comparative plot displaying the amplitude of the raw audio signal overlaid with the filtered signal over time.
+2. **Passband Characteristics:** A linear magnitude representation showing the frequency response and bandwidth window of the active Butterworth filter.
+3. **Spectral Frequency (FFT):** A Fast Fourier Transform (FFT) plot that visualizes the signal in the frequency domain, explicitly highlighting the elimination of unwanted spectral components.
+4. **Heatmap Spectrogram:** A time-frequency representation utilizing color intensity to display the sound's "sonic fingerprint", mapped across dynamic ranges.
 
-$$|H(j\omega)| [cite_start]= \frac{1}{\sqrt{1 + \epsilon^2 \left(\frac{\omega}{\omega_c}\right)^{2n}}}$$ [cite: 22, 58, 63]
-
-Where:
-* [cite_start]$n$ = Filter order [cite: 23, 65]
-* [cite_start]$\omega$ = Working frequency [cite: 24, 66]
-* [cite_start]$\epsilon$ = Parameter determining the passband ripple [cite: 25, 67]
-
-### Spectral Analysis
-* [cite_start]**Fast Fourier Transform (FFT):** Visually highlights the elimination of unwanted spectral components[cite: 28, 61].
-
-[cite_start]$$X(k) = \sum_{n=0}^{N-1} x(n)e^{-j\frac{2\pi}{N}kn}$$ [cite: 28, 58]
-
-## 🖥️ User Interface (GUI) Guide
-[cite_start]The intuitive interface is organized into three main sections[cite: 31]:
-1. [cite_start]**Control Panel:** Options to load the audio file, set the Start/Stop cut-off frequencies, and choose the filter order[cite: 32, 54].
-2. [cite_start]**Visualization Zone:** Four independent axes for comparative signal analysis (Time, Magnitude, FFT, Spectrogram)[cite: 33, 55].
-3. [cite_start]**Playback System:** Dedicated buttons for comparative listening between the original and filtered signal, plus a STOP button[cite: 34, 56].
+## 🖥️ Graphical User Interface (GUI) Guide
+The interface is structured ergonomically into distinct control and feedback zones:
+* **Control Panel:** Features a file explorer button to load local audio files (`.wav`, `.mp3`, `.m4a`), text fields for precise frequency input, and a dropdown menu for selecting the filter order.
+* **Processing Execution:** A dedicated "Aplica Filtrul" (Apply Filter) action button triggers the DSP algorithms and updates all visual graphs simultaneously.
+* **Playback System:** Includes isolated audio controls to seamlessly switch between listening to the "Original" track and the "Filtered" result, complete with a Stop command for workflow efficiency.
 
 ## 📂 Repository Structure
-Ensure the following files are included in the repository:
-* `ProiectFTB.m` — The main MATLAB executable script containing the audio processing logic and the GUI interface.
-* `audio.wav` — Sample audio file provided for testing the application's filtering capabilities.
-* `FTB_doc.docx` — The complete written project documentation.
-* `FTB_presentation.pptx` — The presentation slides.
+Ensure the following files are present in the root directory for the application to function correctly:
+* `ProiectFTB.m` — The primary MATLAB executable script containing the integrated DSP logic and GUI architecture.
+* `audio.wav` — A sample audio file provided for testing the application's filtering and noise-reduction capabilities.
+* `FTB_doc.docx` — The complete technical documentation and theoretical background of the project.
+* `FTB_presentation.pptx` — The academic presentation slides summarizing the project's objectives and results.
 
 ## 🚀 How to Run
-1. Open MATLAB.
-2. Ensure all project files are in your current working directory.
-3. Run the script by typing `ProiectFTB` in the command window.
-4. Click **📂 INCARCA AUDIO** to load the provided `.wav` file.
-5. Adjust the **Frecventa START (Hz)** and **Frecventa STOP (Hz)** fields (e.g., 300 and 1000).
-6. Select the **Ordin Filtru** from the dropdown menu.
-7. Click **⚡ APLICA FILTRUL** to process the audio and render the visualization graphs.
-8. Use the **🔊 Play Original** and **🎧 Play Filtrat** buttons to hear the audio differences, and **🛑 STOP** to halt playback.
+1. Open the MATLAB environment.
+2. Navigate your working directory to the folder containing the repository files.
+3. Run the application by typing `ProiectFTBbun` in the command window or by executing the script directly.
+4. Click **📂 INCARCA AUDIO** to load the provided sample file or any supported custom audio file.
+5. Define the target passband by adjusting the **Frecventa START (Hz)** and **Frecventa STOP (Hz)** parameters.
+6. Select the desired **Ordin Filtru** (Filter Order) for roll-off severity.
+7. Click **⚡ APLICA FILTRUL** to process the data and render the analytical plots.
+8. Use the **🔊 Play Original** and **🎧 Play Filtrat** buttons to audit the results.
