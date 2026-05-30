@@ -34,7 +34,7 @@ Ensure the following files are present in the root directory for the application
 ## 🚀 How to Run
 1. Open the MATLAB environment.
 2. Navigate your working directory to the folder containing the repository files.
-3. Run the application by typing `ProiectFTBbun` in the command window or by executing the script directly.
+3. Run the application by typing `ProiectFTB` in the command window or by executing the script directly.
 4. Click **📂 INCARCA AUDIO** to load the provided sample file or any supported custom audio file.
 5. Define the target passband by adjusting the **Frecventa START (Hz)** and **Frecventa STOP (Hz)** parameters.
 6. Select the desired **Ordin Filtru** (Filter Order) for roll-off severity.
