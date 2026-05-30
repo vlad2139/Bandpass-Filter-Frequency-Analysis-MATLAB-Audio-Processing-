@@ -1,7 +1,7 @@
 # Bandpass Filter - Frequency Analysis (MATLAB GUI)
 
 ## 📌 Project Overview
-[cite_start]This project provides a versatile software tool for cleaning audio signals from background noise and isolating specific instruments or voices[cite: 7, 70]. [cite_start]It integrates numerical signal processing with computer graphics to create an interactive frequency analysis application[cite: 7, 69]. 
+This project provides a versatile software tool for cleaning audio signals from background noise and isolating specific instruments or voices[cite: 7, 70]. [cite_start]It integrates numerical signal processing with computer graphics to create an interactive frequency analysis application[cite: 7, 69]. 
 
 [cite_start]This was developed as part of the "Computer Assisted Graphics" course by Bob Vlad Ștefan (Faculty of Electronics, Telecommunications and Information Technology - ETTI, Year II, Series B, Group 2126)[cite: 2, 3, 4, 5, 36, 37, 38, 39].
 
@@ -13,24 +13,20 @@
 ## ⚙️ Theoretical Background
 [cite_start]A bandpass filter allows signals within a specific frequency range (the passband) to pass through without attenuation (or very little), while heavily attenuating frequencies outside this range[cite: 13, 14, 42, 43]. [cite_start]Structurally, it combines a High-Pass Filter (FTS) and a Low-Pass Filter (FTJ) in series[cite: 15, 41].
 
-### Key Formulas:
-* [cite_start]**Lower Cut-off Frequency:** f_Ti = 1 / (2 * π * R2 * C2) [cite: 17, 44]
-* [cite_start]**Upper Cut-off Frequency:** f_Ts = 1 / (2 * π * R1 * C1) [cite: 18, 45]
-* [cite_start]**Center Frequency:** f_0 = √(f_Ts * f_Ti) [cite: 19, 46]
-* [cite_start]**Bandwidth:** B = f_Ts - f_Ti [cite: 20, 47]
-
 ### Butterworth Filter Implementation
 [cite_start]The application uses a Butterworth filter based on the Magnitude Equation to determine the response amplitude[cite: 22]:
-|H(jω)| [cite_start]= 1 / √(1 + ε² * (ω/ω_c)^(2n)) [cite: 22, 58, 63]
+
+$$|H(j\omega)| [cite_start]= \frac{1}{\sqrt{1 + \epsilon^2 \left(\frac{\omega}{\omega_c}\right)^{2n}}}$$ [cite: 22, 58, 63]
 
 Where:
-* [cite_start]n = Filter order [cite: 23, 65]
-* [cite_start]ω = Working frequency [cite: 24, 66]
-* [cite_start]ε = Parameter determining the passband ripple [cite: 25, 67]
+* [cite_start]$n$ = Filter order [cite: 23, 65]
+* [cite_start]$\omega$ = Working frequency [cite: 24, 66]
+* [cite_start]$\epsilon$ = Parameter determining the passband ripple [cite: 25, 67]
 
 ### Spectral Analysis
 * [cite_start]**Fast Fourier Transform (FFT):** Visually highlights the elimination of unwanted spectral components[cite: 28, 61].
-  [cite_start]X(k) = Σ [from n=0 to N-1] x(n) * e^(-j * (2π/N) * kn) [cite: 28, 58]
+
+[cite_start]$$X(k) = \sum_{n=0}^{N-1} x(n)e^{-j\frac{2\pi}{N}kn}$$ [cite: 28, 58]
 
 ## 🖥️ User Interface (GUI) Guide
 [cite_start]The intuitive interface is organized into three main sections[cite: 31]:
